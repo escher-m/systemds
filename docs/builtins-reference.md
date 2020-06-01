@@ -29,6 +29,7 @@ limitations under the License.
     * [`lmpredict`-Function](#lmpredict-function)
     * [`steplm`-Function](#steplm-function)
     * [`slicefinder`-Function](#slicefinder-function)
+    * [`normalize`-Function](#normalize-function)
     
 # Introduction
 
@@ -321,4 +322,32 @@ X = rand (rows = 50, cols = 10)
 y = X %*% rand(rows=ncol(X), 1)
 w = lm(X = X, y = y)
 ress = slicefinder(X = X,W = w, Y = y,  k = 5, paq = 1, S = 2);
+```
+## `normalize`-Function
+
+The `normalize`-function is used for data preparation by normalization. Here, the values of a matrix (numeric columns) are changed in the dataset to use a common scale, while preserving differences in the ranges of values.
+
+### Usage
+```r
+normalize(X); 
+```
+
+### Arguments
+| Name    | Type           | Default  | Description |
+| :------ | :------------- | -------- | :---------- |
+| X       | Matrix[Double] | required | Matrix of feature vectors. |
+
+
+### Returns
+| Type           | Description |
+| :------------- | :---------- |
+| Matrix[Double] | 1-column matrix of normalized value. |
+
+
+
+### Example
+```r
+X = rand (rows = 50, cols = 10)
+y = X %*% rand(rows=ncol(X), 1)
+normalize(X = X)
 ```
